@@ -80,7 +80,7 @@ class LetterBall {
 const canvasWidth = 640;
 const canvasHeight = 480;
 const letterBalls = [];
-const centerBall = new LetterBall("$");
+const centerBall = new LetterBall(" ");
 letterBalls.push(centerBall);
 const numStartingLetterBalls = 10;
 const fps = 60;
@@ -88,6 +88,9 @@ const fps = 60;
 //DOM elements
 const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
+const addBallButton = document.querySelector("#addBall");
+
+addBallButton.addEventListener("click", addBall);
 
 //initialization
 canvas.width = canvasWidth;
