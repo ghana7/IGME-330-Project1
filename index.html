@@ -3,14 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Roboto&display=swap" rel="stylesheet">  
     <link rel="stylesheet" type="text/css" href="styles/default-styles.css">
-    <title>Project 1</title>
+    <title>Bouncing Letters</title>
 </head>
 <body>
-    <canvas>
+    <header>
+        <h1>Bouncing Letters</h1>
+        <h2>By Jimmie Harkins</h2>
+    </header>
+    <main>
+        <div id="canvasWrapper">
+            <canvas id="backgroundCanvas">
+        
+            </canvas>
+            <canvas id="foregroundCanvas">
+        
+            </canvas>
 
-    </canvas>
-    <button id="addBall">Add ball</button>
+        </div>
+    </main>
+    <section id="controls">
+        <button id="addBall">Add ball</button>
+        <button id="reset">Reset</button>
+        <button id="scatter">Scatter Balls</button>
+        <br>
+
+        <label for="ballSpeed">Ball Speed</label>
+        <input type="range" id="ballSpeed" name="ballSpeed" min="50" max="400" step="10" value="200">
+        <br>
+
+        <label for="ballSize">Ball Size</label>
+        <input type="range" id="ballSize" name="ballSize"  min="5" max="20" step="1" value="10">
+        <br>
+
+        <label for="repopulate">Automatically Repopulate Balls</label>
+        <input type="checkbox" id="repopulate" name="repopulate">
+        <br>
+    </section>
+    <section id="description">
+        <h3>Watch the letters bounce into words!</h3>
+        <p>If a letter ball hits the center, it will start a word. 
+            Then other letters can join it to keep building a word. 
+            If a ball bounces off another, that means no word can
+            be made. Once a word is finished, the last letter will
+            change color and make a word of its own. Words can branch,
+            too! If a ball hits the middle of a word and can make a new
+            word, it'll change color and start its own branch.</p>
+        <h3>Controls:</h3>
+        <ul>
+            <li>Add Ball: adds a new ball, placed randomly</li>
+            <li>Reset: resets the simulation</li>
+            <li>Scatter Balls: releases all the balls from the center, disabling collision for a few seconds</li>
+            
+            <li>Ball Speed: controls how fast <b>new</b> balls move</li>
+            <li>Ball Size: controls how big <b>new</b> balls are</li>
+
+            <li>Automatically Repopulate Balls: sets whether a new ball is created whenever one is added to a word</li>
+        </ul>
+    </section>
+    <script src="src/rita-full.min.js"></script>
     <script src="src/jehLIB.js"></script>
     <script src="src/index.js"></script>
 </body>

@@ -1,3 +1,4 @@
+"use strict";
 (function () {
     let jehLIB = {
         getRandomColor() {
@@ -16,6 +17,35 @@
 
         getRandomLetter() {
             return "abcdefghijklmnopqrstuvwxyz"[this.getRandomInt(0, 25)];
+        },
+
+        getRandomWeightedLetter() {
+            return "eeeeeeeeeeeetttttttttaaaaaaaaooooooooiiiiiiinnnnnnnssssssrrrrrrhhhhhhddddlllluuucccmmmfffyywwggppbbvkxqjz"[this.getRandomInt(0, 104)];
+        },
+
+        getRandomLetterOf(str) {
+            return str[this.getRandomInt(0, str.length - 1)];
+        },
+
+        canMakeWord(str) {
+            let superstrings = RiTa.superstrings(str);
+            for(let ss of superstrings) {
+                if(ss.startsWith(str)) {
+                    return true;
+                }
+            }
+            return false;
+        },
+
+        possibleNextLetters(str) {
+            let possible = [];
+            let superstrings = RiTa.superstrings(str);
+            for(let ss of superstrings) {
+                if(ss.startsWith(str)) {
+                    possible.push(ss[str.length]);
+                }
+            }
+            return possible;
         },
 
         getRandomUnitVector() {
@@ -45,7 +75,7 @@
         },
 
         magnitude(vector) {
-            return Math.sqrt(vector.x * vector.x + vector.y + vector.y);
+            return Math.sqrt(vector.x * vector.x + vector.y * vector.y);
         },
 
         dotProduct(v1, v2) {
@@ -66,10 +96,23 @@
             }
         },
 
+        subtract(v1, v2) {
+            return {
+                x: v1.x - v2.x,
+                y: v1.y - v2.y
+            }
+        },
+
         mult(vector, number) {
             return {
                 x: vector.x * number,
                 y: vector.y * number
+            }
+        },
+        zero() {
+            return {
+                x: 0,
+                y:0
             }
         }
     }

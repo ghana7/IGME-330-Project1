@@ -1,3 +1,58 @@
+* {
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+}
+
+#canvasWrapper {
+    position: relative;
+    max-width: 640px;
+    margin: auto;
+}
 canvas {
     border: 1px solid black;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+body {
+    background-color: #FFFFDD;
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    grid-template-areas: "header header header header"
+                         "main main controls description"
+                         "footer footer footer footer";
+    grid-template-rows: 10vh 1fr 10vh;
+    grid-template-columns: 1fr 1fr 1.5fr 1.5fr;
+}
+
+header {
+    grid-area: header;
+}
+
+main {
+    grid-area: main;
+    position: relative;
+}
+
+#controls {
+    grid-area: controls;
+    font-size: 2rem;
+}
+
+#description {
+    grid-area: description;
+    font-size: 1.5rem;
+}
+
+h1, h2, h3 {
+    font-family: "Architects Daughter", serif;
+}
+
+button {
+    background-color: #FF9999;
+    border: 2px solid  #CC7777;
+    font-size: 2rem;
+    font-family: "Architects Daughter", serif;
 }
